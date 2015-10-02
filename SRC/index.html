@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body ng-app="app">
+
+<div ng-controller="simpleCnt">
+    {{msg}}
+
+    <form name="signupFrm" novalidate ng-submit="save()">
+        Name:
+        <xinput dcomp
+                ng-model="model.username"
+                name="username"
+             >
+
+        </xinput>
+
+        <div  ng-show="signupFrm.username.$dirty && signupFrm.username.$invalid">
+            <small class="error" ng-show="signupFrm.username.$error.required">Please input a username</small>
+            <small class="error" ng-show="signupFrm.username.$error.minlength">Please enter a min length of 3</small>
+            <small class="error" ng-show="signupFrm.username.$error.maxlength">Please enter a max length of 10</small>
+        </div>
+
+        <input type="submit" value="Submit"/>
+    </form>
+</div>
+
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
